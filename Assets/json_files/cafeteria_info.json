@@ -1,0 +1,8 @@
+{
+    "Location_name": "Cafeteria",
+    "description": "Cafeteria offers a variety of meals and refreshments to students and staff. Opening hours for Ipanema Espresso are 07:00-18:00 and Lunch area 12:00-15:00",
+    "images": [
+        "Assets\\images\\cafeteria.png",
+        "Assets\\images\\cafe.png"
+    ]
+}
