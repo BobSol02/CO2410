@@ -1,22 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Scenes/Style.uss?fileID=7433441132597879392&amp;guid=cc6997f0b2ba2a548be77c088825a855&amp;type=3#Style" />
-    <ui:VisualElement class="root">
+    <ui:VisualElement class="root" style="background-image: url(&quot;project://database/Assets/images/uclan.png?fileID=2800000&amp;guid=903bb30b77e7d4b08ae181d268d53b3e&amp;type=3#uclan&quot;); background-color: rgb(0, 0, 0);">
         <ui:VisualElement class="top-bar" style="background-color: rgba(0, 0, 0, 0.55);">
             <ui:Image name="appLogo" class="app-logo" />
             <ui:Label text="Simple" class="title" style="flex-grow: 1; width: auto;" />
-            <ui:Button name="informationButton" icon-image="project://database/Assets/images/info.png?fileID=2800000&amp;guid=d38043fad2a734024a0086e2f05af864&amp;type=3#info" class="top-button" style="width: 50px; height: 50px;" />
-            <ui:Button name="homeButton" icon-image="project://database/Assets/images/home.png?fileID=2800000&amp;guid=18f503e94afd34640955bd2e6069fd84&amp;type=3#home" class="top-button" style="width: 50px; height: 50px; padding-left: 10px; padding-right: 10px;" />
+            <ui:Button name="informationButton" icon-image="project://database/Assets/images/info%201.png?fileID=2800000&amp;guid=35ae7abc8752c5f4e869847013be052d&amp;type=3#info 1" class="top-button" style="width: 50px; height: 50px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0;" />
+            <ui:Button name="homeButton" icon-image="project://database/Assets/images/home.png?fileID=2800000&amp;guid=665092acae9b1f245bdd6fa9f969828d&amp;type=3#home" class="top-button" style="width: 50px; height: 50px; padding-left: 5px; padding-right: 5px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); padding-top: 5px; padding-bottom: 5px;" />
         </ui:VisualElement>
-        <ui:VisualElement class="main-content">
+        <ui:VisualElement class="main-content" style="background-color: rgba(0, 0, 0, 0);">
             <ui:Image name="mainImage" class="main-image" />
             <ui:Button name="startButton" class="main-button">
                 <ui:Label text="START EXPLORING" />
             </ui:Button>
         </ui:VisualElement>
         <ui:VisualElement name="informationPopup" class="popup-window" style="display: none;">
-            <ui:VisualElement class="popup-window-top-bar">
-                <ui:Button name="closeButton" class="popup-window-top-button">
-                    <ui:Label text="Close" />
+            <ui:VisualElement class="popup-window-top-bar" style="background-color: rgb(85, 85, 85);">
+                <ui:Label text="Title&#10;" style="-unity-font-style: bold; height: 20px; width: 23px; flex-grow: 1; align-items: center; justify-content: flex-start; align-self: center; margin-left: 10px; margin-right: 10px; color: rgb(255, 255, 255);" />
+                <ui:Button name="closeButton" class="popup-window-top-button" style="border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; width: 40px; height: 40px; margin-bottom: 5px; margin-top: 5px; margin-right: 5px;">
+                    <ui:Label text="X" style="-unity-font-style: bold; height: 20px; width: 23px; color: rgb(0, 0, 0); font-size: 20px;" />
                 </ui:Button>
             </ui:VisualElement>
             <ui:VisualElement class="popup-window-content">
