@@ -17,7 +17,6 @@ public class MainMenuManager : MonoBehaviour
         var root = uiDocument.rootVisualElement;
         informationButton = root.Q<Button>("informationButton");
         homeButton = root.Q<Button>("homeButton");
-        settingsButton = root.Q<Button>("settingsButton");
         startButton = root.Q<Button>("startButton");
         mainImage = root.Q<VisualElement>("mainImage");
         appLogo = root.Q<VisualElement>("appLogo");
@@ -30,17 +29,12 @@ public class MainMenuManager : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
             } 
         };
-        settingsButton.clicked += () => {
-            if (SceneManager.GetActiveScene().name != "Settings")
-            {
-                SceneManager.LoadScene("Settings");
-            }
-        };
         startButton.clicked += () => LoadARScene();
         closeButton.clicked += () => informationPopup.style.display = DisplayStyle.None;
 
         mainImage.style.backgroundImage = new StyleBackground(Resources.Load<Texture2D>("test"));
     }
+
     public void LoadARScene()
     {
 #if UNITY_IOS
