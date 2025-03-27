@@ -8,49 +8,66 @@ using UnityEngine.Android;
 public class MainMenuManager : MonoBehaviour
 {
     public UIDocument uiDocument;
-    private Button informationButton, homeButton, settingsButton, startButton, closeButton;
+    private Button informationButton, mapButton, homeButton, informationCloseButton, mapCloseButton, startButton;
     private VisualElement mainImage, appLogo;
-    private VisualElement informationPopup;
+    private VisualElement informationPopup, mapPopup;
 
     void OnEnable()
     {
         var root = uiDocument.rootVisualElement;
-        informationButton = root.Q<Button>("informationButton");
-        homeButton = root.Q<Button>("homeButton");
-        startButton = root.Q<Button>("startButton");
         mainImage = root.Q<VisualElement>("mainImage");
         appLogo = root.Q<VisualElement>("appLogo");
         informationPopup = root.Q<VisualElement>("informationPopup");
-        closeButton = root.Q<Button>("closeButton");
+        mapPopup = root.Q<VisualElement>("mapPopup");
+        informationButton = root.Q<Button>("informationButton");
+        mapButton = root.Q<Button>("mapButton");
+        homeButton = root.Q<Button>("homeButton");
+        informationCloseButton = root.Q<Button>("informationCloseButton");
+        mapCloseButton = root.Q<Button>("mapCloseButton");
+        startButton = root.Q<Button>("startButton");
 
-        informationButton.clicked += () => { informationPopup.style.display = DisplayStyle.Flex; };
-        homeButton.clicked += () => { 
-            if (SceneManager.GetActiveScene().name != "MainMenu") {
+        homeButton.clicked += () => {
+            if (SceneManager.GetActiveScene().name != "MainMenu")
+            {
                 SceneManager.LoadScene("MainMenu");
-            } 
+            }
         };
-        startButton.clicked += () => LoadARScene();
-        closeButton.clicked += () => informationPopup.style.display = DisplayStyle.None;
 
+        informationButton.clicked += () =>
+        {
+            if (mapPopup.style.display == DisplayStyle.Flex) mapPopup.style.display = DisplayStyle.None;
+            informationPopup.style.display = DisplayStyle.Flex;
+        };
+        informationCloseButton.clicked += () => informationPopup.style.display = DisplayStyle.None;
+
+        mapButton.clicked += () =>
+        {
+            if (informationPopup.style.display == DisplayStyle.Flex) informationPopup.style.display = DisplayStyle.None;
+            mapPopup.style.display = DisplayStyle.Flex;
+        };
+        mapCloseButton.clicked += () => mapPopup.style.display = DisplayStyle.None;
+
+        startButton.clicked += () => LoadARScene();
+        
         mainImage.style.backgroundImage = new StyleBackground(Resources.Load<Texture2D>("test"));
     }
 
     public void LoadARScene()
     {
-#if UNITY_IOS
+    #if UNITY_IOS
         if(!Application.HasUserAuthorization(UserAuthorization.WebCam)){
             Application.RequestUserAuthorization(UserAuthorization.WebCam);
         }
         Debug.Log("Apple");
-#endif
-#if UNITY_ANDROID
+    #endif
+    #if UNITY_ANDROID
         if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
         {
             Debug.Log("Asking Permission");
             Permission.RequestUserPermission(Permission.Camera);
         }
         Debug.Log("Android");
-#endif
+    #endif
         SceneManager.LoadScene("ARScene");
     }
 
