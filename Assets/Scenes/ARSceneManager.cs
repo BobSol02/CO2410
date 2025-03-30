@@ -33,15 +33,30 @@ public class ARSceneManager : MonoBehaviour
             if (mapPopup.style.display == DisplayStyle.Flex) mapPopup.style.display = DisplayStyle.None;
             informationPopup.style.display = DisplayStyle.Flex; 
         };
-        informationCloseButton.clicked += () => informationPopup.style.display = DisplayStyle.None;
+        informationCloseButton.clicked += () => { informationPopup.style.display = DisplayStyle.None; };
 
         mapButton.clicked += () => 
         {
             if (informationPopup.style.display == DisplayStyle.Flex) informationPopup.style.display = DisplayStyle.None;
             mapPopup.style.display = DisplayStyle.Flex; 
         };
-        mapCloseButton.clicked += () => mapPopup.style.display = DisplayStyle.None;
+        mapCloseButton.clicked += () => { mapPopup.style.display = DisplayStyle.None; } ;
 
-        mainImage.style.backgroundImage = new StyleBackground(Resources.Load<Texture2D>("test"));
+        SetRaycastIgnoring(root);
+    }
+
+    private void SetRaycastIgnoring(VisualElement element)
+    {
+        // Check if the element is a button
+        if (!(element is Button))
+        {
+            element.pickingMode = PickingMode.Ignore;
+        }
+
+        // Recursively apply to all children
+        foreach (var child in element.Children())
+        {
+            SetRaycastIgnoring(child);
+        }
     }
 }

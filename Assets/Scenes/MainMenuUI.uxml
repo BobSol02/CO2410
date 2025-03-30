@@ -9,7 +9,6 @@
             <ui:Button name="homeButton" icon-image="project://database/Assets/images/home.png?fileID=2800000&amp;guid=665092acae9b1f245bdd6fa9f969828d&amp;type=3#home" class="top-button" style="width: 50px; height: 50px; padding-left: 5px; padding-right: 5px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); padding-top: 5px; padding-bottom: 5px;" />
         </ui:VisualElement>
         <ui:VisualElement class="main-content" style="background-color: rgba(0, 0, 0, 0);">
-            <ui:Image name="mainImage" class="main-image" />
             <ui:Button name="startButton" class="main-button" style="background-color: rgba(0, 0, 0, 0.63); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; flex-shrink: 0; width: auto; height: auto; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
                 <ui:Label text="START EXPLORING" style="color: rgb(255, 255, 255); -unity-font-style: bold; width: 140px;" />
             </ui:Button>

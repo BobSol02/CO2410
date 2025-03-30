@@ -38,14 +38,14 @@ public class MainMenuManager : MonoBehaviour
             if (mapPopup.style.display == DisplayStyle.Flex) mapPopup.style.display = DisplayStyle.None;
             informationPopup.style.display = DisplayStyle.Flex;
         };
-        informationCloseButton.clicked += () => informationPopup.style.display = DisplayStyle.None;
+        informationCloseButton.clicked += () => { informationPopup.style.display = DisplayStyle.None; };
 
         mapButton.clicked += () =>
         {
             if (informationPopup.style.display == DisplayStyle.Flex) informationPopup.style.display = DisplayStyle.None;
             mapPopup.style.display = DisplayStyle.Flex;
         };
-        mapCloseButton.clicked += () => mapPopup.style.display = DisplayStyle.None;
+        mapCloseButton.clicked += () => { mapPopup.style.display = DisplayStyle.None; };
 
         startButton.clicked += () => LoadARScene();
         
