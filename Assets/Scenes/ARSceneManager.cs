@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 public class ARSceneManager : MonoBehaviour
 {
     public UIDocument uiDocument;
-    private Button informationButton, mapButton, homeButton, informationCloseButton, mapCloseButton;
-    private VisualElement mainImage, appLogo;
+    private Button informationButton, mapButton, homeButton, informationCloseButton, mapCloseButton,button1F, buttonG, buttonB;
+    private VisualElement mainImage, appLogo, mapImage;
     private VisualElement informationPopup, mapPopup;
+    
 
     void OnEnable()
     {
@@ -21,6 +22,17 @@ public class ARSceneManager : MonoBehaviour
         homeButton = root.Q<Button>("homeButton");
         informationCloseButton = root.Q<Button>("informationCloseButton");
         mapCloseButton = root.Q<Button>("mapCloseButton");
+
+        mapImage = root.Q<VisualElement>("mapImage"); // Map image element
+        button1F = root.Q<Button>("1F");
+        buttonG = root.Q<Button>("G");
+        buttonB = root.Q<Button>("B");
+
+        //Floor button logic
+        button1F.clicked += () => UpdateMapImage("map_1F");
+        buttonG.clicked += () => UpdateMapImage("map_G");
+        buttonB.clicked += () => UpdateMapImage("map_B");
+
 
         homeButton.clicked += () => { 
             if (SceneManager.GetActiveScene().name != "MainMenu") {
@@ -43,7 +55,11 @@ public class ARSceneManager : MonoBehaviour
         mapCloseButton.clicked += () => { mapPopup.style.display = DisplayStyle.None; } ;
 
         SetRaycastIgnoring(root);
+
     }
+
+
+
 
     private void SetRaycastIgnoring(VisualElement element)
     {
@@ -57,6 +73,19 @@ public class ARSceneManager : MonoBehaviour
         foreach (var child in element.Children())
         {
             SetRaycastIgnoring(child);
+        }
+    }
+
+    void UpdateMapImage(string imageName)
+    {
+        Texture2D texture = Resources.Load<Texture2D>($"images/{imageName}");
+        if (texture != null)
+        {
+            mapImage.style.backgroundImage = new StyleBackground(texture);
+        }
+        else
+        {
+            Debug.LogError($"Image not found: {imageName}");
         }
     }
 }

@@ -33,12 +33,12 @@
             </ui:VisualElement>
             <ui:VisualElement class="popup-window-content" style="flex-direction: row;">
                 <ui:VisualElement name="VisualElement" class="popup-window-content" style="flex-grow: 0;">
-                    <ui:Button text="First&#10;Floor&#10;" name="1F" style="height: 35px; width: 67px; margin-bottom: 10px; margin-top: 10px;" />
-                    <ui:Button text="Ground" name="G" style="height: 35px; width: 67px; margin-bottom: 10px; margin-top: 10px;" />
-                    <ui:Button text="Basement&#10;" name="B" style="height: 35px; width: 73px; margin-bottom: 10px; margin-top: 10px;" />
+                    <ui:Button text="First&#10;Floor&#10;" name="1F" style="height: 35px; width: 67px; margin-bottom: 10px; margin-top: 10px; background-image: none; background-size: 200% 200%;" />
+                    <ui:Button text="Ground" name="G" style="height: 35px; width: 67px; margin-bottom: 10px; margin-top: 10px; background-image: none;" />
+                    <ui:Button text="Basement&#10;" name="B" style="height: 35px; width: 73px; margin-bottom: 10px; margin-top: 10px; background-image: none;" />
                 </ui:VisualElement>
-                <ui:VisualElement class="popup-window-content" style="flex-shrink: 1;">
-                    <ui:Label text="Map Content" />
+                <ui:VisualElement class="popup-window-content" style="flex-grow: 1; background-size: 100% 0;">
+                    <ui:Image name="mapImage" style="width: 400px; height: 200px; background-image: none; background-size: 400px 200px; background-position-x: center 0;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
