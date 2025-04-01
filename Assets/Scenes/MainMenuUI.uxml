@@ -26,19 +26,19 @@
         </ui:VisualElement>
         <ui:VisualElement name="mapPopup" class="popup-window" style="display: none;">
             <ui:VisualElement class="popup-window-top-bar" style="background-color: rgb(85, 85, 85);">
-                <ui:Label text="Map" style="-unity-font-style: bold; height: 20px; width: 23px; flex-grow: 1; align-items: center; justify-content: flex-start; align-self: center; margin-left: 10px; margin-right: 10px; color: rgb(255, 255, 255);" />
-                <ui:Button name="mapCloseButton" class="popup-window-top-button" style="border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; width: 40px; height: 40px; margin-bottom: 5px; margin-top: 5px; margin-right: 5px;">
-                    <ui:Label text="X" style="-unity-font-style: bold; height: 20px; width: 23px; color: rgb(0, 0, 0); font-size: 20px;" />
+                <ui:Label text="Map" style="-unity-font-style: bold; height: 20px; flex-grow: 1; align-items: center; justify-content: flex-start; align-self: center; margin-left: 10px; margin-right: 10px; color: rgb(255, 255, 255);" />
+                <ui:Button name="mapCloseButton" class="popup-window-top-button" style="border: 2px solid rgb(0, 0, 0); border-radius: 50px; padding: 5px; width: 40px; height: 40px; margin: 5px;">
+                    <ui:Label text="X" style="-unity-font-style: bold; color: rgb(0, 0, 0); font-size: 20px;" />
                 </ui:Button>
             </ui:VisualElement>
-            <ui:VisualElement class="popup-window-content" style="flex-direction: row;">
-                <ui:VisualElement name="VisualElement" class="popup-window-content" style="flex-grow: 0;">
-                    <ui:Button text="First&#10;Floor&#10;" name="1F" style="height: 35px; width: 67px; margin-bottom: 10px; margin-top: 10px; background-image: none; background-size: 200% 200%;" />
-                    <ui:Button text="Ground" name="G" style="height: 35px; width: 67px; margin-bottom: 10px; margin-top: 10px; background-image: none;" />
-                    <ui:Button text="Basement&#10;" name="B" style="height: 35px; width: 73px; margin-bottom: 10px; margin-top: 10px; background-image: none;" />
+            <ui:VisualElement class="popup-window-content" style="flex-direction: row; height: 100%;">
+                <ui:VisualElement name="buttonContainer" style="flex-grow: 0; width: 30%; padding: 10px; flex-direction: column; justify-content: space-around;">
+                    <ui:Button text="First Floor" name="1F" style="min-height: 60px; margin: 5px 0;" />
+                    <ui:Button text="Ground" name="G" style="min-height: 60px; margin: 5px 0;" />
+                    <ui:Button text="Basement" name="B" style="min-height: 60px; margin: 5px 0;" />
                 </ui:VisualElement>
-                <ui:VisualElement class="popup-window-content" style="flex-grow: 1; background-size: 100% 0;">
-                    <ui:Image name="mapImage" style="width: 400px; height: 200px; background-image: none; background-size: 400px 200px; background-position-x: center 0;" />
+                <ui:VisualElement name="imageContainer" style="flex-grow: 1; min-width: 60%; padding: 10px; background-color: transparent;">
+                    <ui:Image name="mapImage" style="width: 100%; height: 100%; background-size: cover;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

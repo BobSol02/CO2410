@@ -81,7 +81,10 @@ public class ARSceneManager : MonoBehaviour
         Texture2D texture = Resources.Load<Texture2D>($"images/{imageName}");
         if (texture != null)
         {
-            mapImage.style.backgroundImage = new StyleBackground(texture);
+            var imageElement = mapImage as VisualElement;
+            imageElement.style.backgroundImage = new StyleBackground(texture);
+            imageElement.style.unityBackgroundScaleMode = ScaleMode.StretchToFill;
+
         }
         else
         {
