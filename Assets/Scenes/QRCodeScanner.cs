@@ -20,7 +20,6 @@ public class QRCodeScanner : MonoBehaviour
 {
     [SerializeField] private ARCameraManager arCameraManager;
     [SerializeField] private GameObject infoPanel; // Panel to display the content
-    [SerializeField] private TextMeshProUGUI resultText;
     [SerializeField] private TextMeshProUGUI locationText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private RawImage contentImage;
@@ -107,7 +106,6 @@ public class QRCodeScanner : MonoBehaviour
             if (result != null)
             {
                 Debug.Log($"QR code: {result.Text}");
-                resultText.text = "QR code: " + result.Text;
                 ProcessQRContent(result.Text);
             }
         }
