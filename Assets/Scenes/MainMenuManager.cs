@@ -8,22 +8,24 @@ using UnityEngine.Android;
 public class MainMenuManager : MonoBehaviour
 {
     public UIDocument uiDocument;
+    //buttons
     private Button informationButton, mapButton, homeButton, informationCloseButton, mapCloseButton, startButton;
-    private Button button1F, buttonG, buttonB;  // Floor selection buttons
+    private Button button1F, buttonG, buttonB;
+    //pop-ups, map image
     private VisualElement mainImage, appLogo, informationPopup, mapPopup, mapImage;
 
     void OnEnable()
     {
         var root = uiDocument.rootVisualElement;
 
-        // UI Elements
+        //Initialise Ui elements
         mainImage = root.Q<VisualElement>("mainImage");
         appLogo = root.Q<VisualElement>("appLogo");
         informationPopup = root.Q<VisualElement>("informationPopup");
         mapPopup = root.Q<VisualElement>("mapPopup");
-        mapImage = root.Q<VisualElement>("mapImage"); // Map image element
+        mapImage = root.Q<VisualElement>("mapImage");
 
-        // Buttons
+        // Initialise buttons
         informationButton = root.Q<Button>("informationButton");
         mapButton = root.Q<Button>("mapButton");
         homeButton = root.Q<Button>("homeButton");
@@ -31,12 +33,12 @@ public class MainMenuManager : MonoBehaviour
         mapCloseButton = root.Q<Button>("mapCloseButton");
         startButton = root.Q<Button>("startButton");
 
-        // Floor buttons
+        // initialise map ppo up buttons
         button1F = root.Q<Button>("1F");
         buttonG = root.Q<Button>("G");
         buttonB = root.Q<Button>("B");
 
-        // Home button logic
+        //when pressing home button move to main menu
         homeButton.clicked += () => {
             if (SceneManager.GetActiveScene().name != "MainMenu")
             {
@@ -44,7 +46,7 @@ public class MainMenuManager : MonoBehaviour
             }
         };
 
-        // Information popup logic
+        //when pressing information button display pop-up
         informationButton.clicked += () =>
         {
             if (mapPopup.style.display == DisplayStyle.Flex) mapPopup.style.display = DisplayStyle.None;
@@ -52,7 +54,7 @@ public class MainMenuManager : MonoBehaviour
         };
         informationCloseButton.clicked += () => { informationPopup.style.display = DisplayStyle.None; };
 
-        // Map popup logic
+        //when pressing map button display pop-up 
         mapButton.clicked += () =>
         {
             if (informationPopup.style.display == DisplayStyle.Flex) informationPopup.style.display = DisplayStyle.None;
@@ -60,18 +62,15 @@ public class MainMenuManager : MonoBehaviour
         };
         mapCloseButton.clicked += () => { mapPopup.style.display = DisplayStyle.None; };
 
-        // Start exploring button
+        // when pressing start exploring button move to AR screen with camera
         startButton.clicked += () => LoadARScene();
 
-        //Set initial main image background
-        
-
-        //Floor button logic
+        //when a specific button for a floor is pressed in map display image of that floor
         button1F.clicked += () => UpdateMapImage("map_1F");
         buttonG.clicked += () => UpdateMapImage("map_G");
         buttonB.clicked += () => UpdateMapImage("map_B");
     }
-
+    //function for hiding the previous image and updaing with the new selected one
     void UpdateMapImage(string imageName)
     {
         Texture2D texture = Resources.Load<Texture2D>($"images/{imageName}");
@@ -79,7 +78,7 @@ public class MainMenuManager : MonoBehaviour
         {
             var imageElement = mapImage as VisualElement;
             imageElement.style.backgroundImage = new StyleBackground(texture);
-            imageElement.style.unityBackgroundScaleMode = ScaleMode.StretchToFill;           
+            imageElement.style.unityBackgroundScaleMode = ScaleMode.StretchToFill;  //used to make the image stay within the pop-up         
 
         }
         else
